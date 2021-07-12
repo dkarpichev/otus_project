@@ -26,5 +26,4 @@ def test_strung_square(test_data):
     elif test_data.name == 'Triangle':
         p = decimal_integer(test_data.perimeter / 2)
         assert test_data.area == decimal_integer((sqrt(p*(p-6)*(p-5)*(p-decimal_integer(4.3)))))
-    else:
-        raise Exception("asdfgt")
+
