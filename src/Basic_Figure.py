@@ -5,12 +5,12 @@ from math import sqrt, pi
 def decimal_integer(integer):
     return Decimal(f"{integer}")
 
-class Figure:
 
+class Figure:
     @classmethod
     def pre_init(cls):
-        if cls.__name__ == 'Figure':
-            raise Exception("Unable to create class \"Figure\"")
+        if cls.__name__ == "Figure":
+            raise Exception('Unable to create class "Figure"')
         else:
             return cls.__name__
 
@@ -26,38 +26,36 @@ class Figure:
         self.name = self.pre_init()
         self.sides = sides
 
-
     @property
     def area(self):
-        if self.name == 'Triangle':
+        if self.name == "Triangle":
             p = decimal_integer(self.perimeter / 2)
             side_a = decimal_integer(self.sides[0])
             side_b = decimal_integer(self.sides[1])
             side_c = decimal_integer(self.sides[2])
-            return decimal_integer(sqrt(p*(p-side_c)*(p-side_b)*(p-side_a)))
-        elif self.name == 'Rectangle':
+            return decimal_integer(sqrt(p * (p - side_c) * (p - side_b) * (p - side_a)))
+        elif self.name == "Rectangle":
             side_a = decimal_integer(self.sides[0])
             side_b = decimal_integer(self.sides[1])
             return decimal_integer(side_b * side_a)
-        elif self.name == 'Square':
+        elif self.name == "Square":
             side_a = decimal_integer(self.sides[0])
-            return side_a**2
-        elif self.name == 'Circle':
+            return side_a ** 2
+        elif self.name == "Circle":
             radius = decimal_integer(self.sides[0])
-            return decimal_integer(pi)*(radius*radius)
+            return decimal_integer(pi) * (radius * radius)
         else:
             raise Exception("This is not a figure")
-
 
     @property
     def perimeter(self):
         try:
-            if self.name != 'Circle':
+            if self.name != "Circle":
                 perim = 0
                 for i in self.sides:
                     perim += decimal_integer(i)
             else:
-                perim = decimal_integer(pi) * (decimal_integer(self.sides[0])*2)
+                perim = decimal_integer(pi) * (decimal_integer(self.sides[0]) * 2)
             return perim
         except:
             raise ("Something went wrong")

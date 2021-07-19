@@ -1,7 +1,7 @@
 from src.Basic_Figure import Figure, decimal_integer
 
 
-class Square (Figure):
+class Square(Figure):
     def __init__(self, *sides):
         super().__init__()
         arg_list = []
